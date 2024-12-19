@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+<h1>Administration</h1>
+<h2>Gestion des dictionnaires</h2>
+
+<div id="screen" *ngIf="openConfirmationOverlay">
+    <div class="confirmationOverlay overlay" *ngIf="openConfirmationOverlay">
+        <h3>Êtes-vous sûr(e) de vouloir réinitialiser les dictionnaires?</h3>
+        <div class="horizontalContainer centered">
+            <button class="yesButton confirmationButton" (click)="deleteAll(); openConfirmationOverlay = false">Oui</button>
+            <button class="noButton confirmationButton" (click)="openConfirmationOverlay = false">Non</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isServerValid; else serverInvalid" class="row">
+    <div class="column">
+        <table>
+            <tbody>
+                <tr>
+                    <th class="columnTitle">Dictionnaires</th>
+                </tr>
+                <tr *ngFor="let dictionary of dictionaries; index as dictionaryId">
+                    <td>
+                        {{ dictionary.title }}
+                        <span
+                            ><app-modify-dictionary [dictionary]="dictionary" *ngIf="dictionaryId > 0"></app-modify-dictionary
+                            ><button class="deleteDictionary" (click)="deleteDictionary(dictionary.dictionaryId)" *ngIf="dictionaryId > 0">
+                                <i class="fa fa-trash-o"></i></button
+                            ><button class="downloadDictionary" (click)="downloadDictionary(dictionary.title)"><i class="fa fa-download"></i></button
+                        ></span>
+                    </td>
+                </tr>
+            </tbody>
+            <input class="uploadFile" type="file" name="filename" accept=".json" (change)="onChange($event)" [formControl]="filePath" />
+            <button class="addDictionary" (click)="uploadDictionary()" [disabled]="!noFileSelected">
+                Ajouter un dictionnaire <i class="fa fa-upload"></i>
+            </button>
+            <div *ngIf="loading" class="loader"></div>
+            <div *ngIf="successLoading" class="warningErrors">Le dictionnaire a été téléversé avec succès.</div>
+            <div *ngIf="failureLoading" class="warningErrors">
+                Une erreur c'est produite au niveau du serveur et le dictionnaire n'a pas pu être téléversé.
+            </div>
+            <div *ngIf="!goodFileExtension" class="warningErrors">Le fichier n'est pas bon du type. Seul les fichiers .json sont acceptés.</div>
+            <div *ngIf="!jsonValid" class="warningErrors">Le fichier json contient une erreur. Impossible de le téléverser.</div>
+            <div *ngIf="!goodFormat" class="warningErrors">
+                Le fichier json n'est pas bon du format. Le format doit être {{ '{' }}"title": "","description": "","words":[]{{ '}' }}.
+            </div>
+            <div *ngIf="!goodTitle" class="warningErrors">Le titre doit être entre 3 et 15 caractères.</div>
+            <div *ngIf="!uniqueTitle" class="warningErrors">Le titre ne doit pas être déjà présent dans la liste.</div>
+            <div *ngIf="!goodDescription" class="warningErrors">La description doit être entre 3 et 100 caractères.</div>
+            <div *ngIf="!goodWords" class="warningErrors">
+                Le dictionnaire doit contenir au moins 20 mots entre 2 et 15 caractères composés seulement de lettres minuscules sans accent.
+            </div>
+        </table>
+    </div>
+</div>
+<ng-template #serverInvalid>
+    <div id="invalid-server">Serveur invalide.</div>
+</ng-template>
+<button *ngIf="isServerValid" class="resetButton" (click)="openConfirmationOverlay = true">Réinitialiser</button>
+<button class="returnButton" routerLink="/admin">Retour</button>

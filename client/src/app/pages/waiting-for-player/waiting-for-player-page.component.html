@@ -1,0 +1,20 @@
+<h1>Scrabble {{ gameMode }}</h1>
+<h2>{{ displayAdequateMessage() }}</h2>
+<app-unavailable-dictionary *ngIf="openUnavailableDictionary()"></app-unavailable-dictionary>
+<div *ngIf="!playerJoined" class="pulse-container">
+    <div class="dot-pulse"></div>
+</div>
+
+<div class="verticalContainer" *ngIf="isErrorStartingGame">
+    <div class="overlay">
+        <h2>Une erreur s'est produite!</h2>
+        <button class="okButton" (click)="closeErrorStartingGameOverlay()">OK</button>
+    </div>
+</div>
+
+<div class="horizontalContainer">
+    <button id="start-game" [disabled]="!playerJoined" (click)="startGame()">Démarrer</button>
+    <button [disabled]="!playerJoined" (click)="rejectOtherPlayer()">Rejeter</button>
+    <button [disabled]="playerJoined" (click)="startGameAlone()" routerLink="/botDifficulty">Partie solo</button>
+    <button (click)="cancelGame()" routerLink="/createNewGame">Annuler</button>
+</div>

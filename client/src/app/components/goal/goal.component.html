@@ -1,0 +1,6 @@
+<div *ngIf="goal" id="Goal">
+    <img *ngIf="!goalInformation.isCompleted" alt="greyStar" src="assets/images/grey_star.png" class="imageStyle" />
+    <img *ngIf="goalInformation.isCompleted" alt="yellowStar" src="assets/images/yellow_star.png" class="imageStyle" />
+    <p class="letterGoal" [attr.isCompleted]="goalInformation.isCompleted">{{ goalInformation.description }}</p>
+    <p class="letterGoal" [attr.isCompleted]="goalInformation.isCompleted" id="bonus">{{ goalInformation.bonus }} points</p>
+</div>

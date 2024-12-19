@@ -1,0 +1,67 @@
+h2 {
+    text-align: center;
+    color: var(--title-color);
+    font-family: var(--title-font);
+    font-style: bold;
+    font-size: 3vh;
+}
+
+.row {
+    align-items: center;
+    text-align: center;
+}
+.horizontalContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.column {
+    margin-left: 7vh;
+    margin-right: 7vh;
+}
+
+table {
+    width: 40vh;
+    background-color: var(--table-color);
+    border: 0.5vh solid var(--table-border-color);
+    border-radius: 2vh;
+    color: var(--table-font-color);
+    font-size: 2vh;
+    font-family: var(--title-font);
+}
+
+td {
+    text-align: center;
+    padding: 16px;
+}
+
+.columnTitle {
+    font-size: 4vh;
+    border-bottom: 1.5vh solid var(--table-title-bottom-border-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-even-child-color);
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+#invalid-server {
+    margin-top: 25vh;
+    text-align: center;
+    font-style: bold;
+    font-size: 3vh;
+}
+
+.place {
+    position: absolute;
+    width: 4vh;
+    height: 4vh;
+    margin-left: -4.5vh;
+    margin-top: 2.5vh;
+}

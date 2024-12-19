@@ -1,0 +1,33 @@
+#container {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 2vh;
+    flex-basis: auto;
+}
+#container-chat-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 8vh;
+    margin-left: 10vh;
+}
+
+#container-chat-box #help-button {
+    display: flex;
+    justify-content: space-around;
+}
+
+#container-chat-box app-chat-box {
+    align-items: flex-end;
+}
+#container-chat-box app-surrender,
+#container-chat-box app-home-button {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+app-play-area {
+    width: min-content;
+    outline: none;
+}

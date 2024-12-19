@@ -1,0 +1,9 @@
+<div *ngIf="gameUpdate.playerInfo.turn">
+    <img *ngIf="!isTouched" src="assets/images/bulb_off.png" class="bulb bulb-enabled" (mouseenter)="isTouched = true" />
+    <div *ngIf="isTouched">
+        <p>Indice</p>
+        <img src="assets/images/bulb_on.png" class="bulb bulb-enabled" (mouseleave)="isTouched = false" (click)="sendHint()" />
+    </div>
+</div>
+
+<img *ngIf="!gameUpdate.playerInfo.turn" src="assets/images/bulb_off.png" class="bulb" id="bulb-disabled" />

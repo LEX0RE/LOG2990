@@ -1,0 +1,9 @@
+<div>
+    <h3>Ce dictionnaire n'est plus valide. Veuillez en choisir un autre.</h3>
+    <label>Dictionnaire :</label>
+    <select [formControl]="dictionary" (click)="changeDictionaryDescription()" name="dictionary_form" title="dictionary_form">
+        <option *ngFor="let dictionary of dictionaries" [selected]="dictionary.title === 'Français'">{{ dictionary.title }}</option>
+    </select>
+    <span>Description du dictionnaire : {{ dictionaryDescription }}</span>
+    <button (click)="submit()">Soumettre</button>
+</div>

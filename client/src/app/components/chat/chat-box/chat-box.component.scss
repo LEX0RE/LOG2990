@@ -1,0 +1,23 @@
+section {
+    width: 48vh;
+    height: 67vh;
+    width: 97.7%;
+    background-color: var(--chat-background-color);
+
+    border-radius: 2vh;
+    display: flex;
+    gap: 0vh 0vh;
+    flex-direction: column;
+
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+app-input-box {
+    width: 48vh;
+}
+
+app-output-box {
+    width: 48vh;
+    height: 60vh;
+}

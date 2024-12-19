@@ -1,0 +1,27 @@
+button:hover {
+    background-color: var(--clearer-button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+button {
+    border-radius: 10vh;
+    text-align: center;
+    background-color: var(--clearer-button-color);
+    color: var(--button-font-color);
+    width: 6vh;
+    height: 6vh;
+    font-family: var(--font);
+    font-size: 4vh;
+}
+p {
+    position: absolute;
+    background-color: var(--tooltip-color);
+    align-items: center;
+    margin-top: -3.8vh;
+    font-size: 2.3vh;
+    padding: 0.6vh;
+    color: var(--button-font-color);
+    border-radius: 1vh;
+    border: 0.3vh solid var(--tooltip-border-color);
+}

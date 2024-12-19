@@ -1,0 +1,56 @@
+#best-score-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.4vh solid var(--overlay-border-color);
+    background-color: var(--overlay-background-color);
+    border-radius: 3vh;
+    z-index: 1;
+    height: 75%;
+}
+
+h1 {
+    margin-top: 4vh;
+    margin-bottom: -2vh;
+    font-family: var(--title-font);
+    font-style: bold;
+    font-size: 5vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+
+.closeButton {
+    width: 18vh;
+    height: 7vh;
+    position: absolute;
+    bottom: 1.5vh;
+    left: 7vh;
+    background-color: var(--button-color);
+    border: 0.4vh solid var(--button-border);
+    color: var(--button-font-color);
+    border-radius: 2vh;
+    font-size: 4vh;
+}
+
+.bestScoreButton {
+    width: 30vh;
+    height: 9vh;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 5vh;
+    background-color: var(--button-color);
+    color: var(--button-font-color);
+    font-family: var(--font);
+    font-size: 2.5vh;
+    border: 3px solid var(--button-border);
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}

@@ -1,0 +1,45 @@
+#Goal {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    background-color: var(--goal-color);
+    border-radius: 2vh;
+    width: 40vh;
+    height: 6vh;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    transition: 1s;
+    margin-left: 3vh;
+}
+.imageStyle {
+    width: 5vh;
+    height: 5vh;
+    padding: 0.5vh;
+}
+
+.letterGoal {
+    padding: 0.5vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 5vh;
+    width: 30vh;
+    font-size: 1.5vh;
+    font-weight: bold;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+}
+
+.letterGoal[isCompleted='true'] {
+    text-decoration: line-through;
+}
+
+#bonus {
+    text-align: right;
+    width: 15vh;
+    margin-left: 0vh;
+    margin-right: 0vh;
+}

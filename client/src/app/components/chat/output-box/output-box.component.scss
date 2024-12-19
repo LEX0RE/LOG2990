@@ -1,0 +1,64 @@
+section {
+    width: inherit;
+    height: inherit;
+    width: 97.7%;
+    border-radius: 2vh;
+}
+
+li {
+    list-style: none;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+
+    font-family: var(--font);
+    font-size: 1.5vh;
+    white-space: pre-wrap;
+}
+li[sender='client'],
+li[sender='others'] {
+    width: 40%;
+    padding: 1.5vh;
+    margin: 2vh 0;
+    font-weight: 500;
+    color: var(--message-font-color);
+}
+li[sender='client'] {
+    margin-left: 21.6vh;
+    border-radius: 2vh 2vh 1vh 2vh;
+
+    background-color: var(--client-message-color);
+}
+
+li[sender='system'] {
+    color: var(--system-message-color);
+    font-size: 1.8vh;
+    text-align: center;
+}
+
+li[sender='others'] {
+    border-radius: 2vh 2vh 2vh 1vh;
+    background-color: var(--other-message-color);
+}
+
+ul {
+    height: 100%;
+    padding: 2vh;
+    margin: 0vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: xyz;
+}
+
+ul::-webkit-scrollbar {
+    width: 0.9vh;
+}
+
+ul::-webkit-scrollbar-track {
+    background: var(--scroll-bar-background-color);
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: var(--button-border);
+    border-radius: 1vh;
+}

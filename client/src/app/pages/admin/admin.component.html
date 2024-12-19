@@ -1,0 +1,53 @@
+<h1>Administration</h1>
+
+<div class="gridContainer">
+    <button class="gridTile rightMargin" routerLink="/dictionaries">Gérer les dictionnaires</button>
+    <button class="gridTile leftMargin" routerLink="/bestScores">Voir les meilleurs scores</button>
+    <button class="gridTile rightMargin" routerLink="/virtualPlayer">Gérer les joueurs virtuels</button>
+    <button class="gridTile leftMargin" routerLink="/gameHistory">Voir l'historique des parties</button>
+</div>
+<hr />
+
+<h2>Réinitialisation des données</h2>
+<div id="screen" *ngIf="openConfirmationOverlay">
+    <div class="resetConfimation overlay">
+        <h3 class="overlayMessage">{{ resetDataConfirmationMessage }}</h3>
+        <div class="horizontalContainer buttonContainer">
+            <button class="confirmationButton yesButton" (click)="resetData(); openConfirmationOverlay = false">Oui</button>
+            <button class="confirmationButton noButton" (click)="openConfirmationOverlay = false">Non</button>
+        </div>
+    </div>
+</div>
+
+<div class="resetFeedback overlay" *ngIf="openFeedbackOverlay">
+    <h3 class="overlayMessage">{{ resetDataFeedback }}</h3>
+    <button class="okButton" (click)="openFeedbackOverlay = false">OK</button>
+</div>
+
+<div class="smallGridContainer">
+    <div class="horizontalContainer">
+        <input type="checkbox" [checked]="dataToReset.dictionaries" (change)="dataToReset.dictionaries = !dataToReset.dictionaries" />
+        <label>Dictionnaires</label>
+    </div>
+    <div class="horizontalContainer">
+        <input type="checkbox" [checked]="dataToReset.bestScores" (change)="dataToReset.bestScores = !dataToReset.bestScores" />
+        <label>Tableaux des meilleurs scores</label>
+    </div>
+    <div class="horizontalContainer">
+        <input
+            type="checkbox"
+            [checked]="dataToReset.virtualPlayerNames"
+            (change)="dataToReset.virtualPlayerNames = !dataToReset.virtualPlayerNames"
+        />
+        <label>Noms des joueurs virtuels</label>
+    </div>
+    <div class="horizontalContainer">
+        <input type="checkbox" [checked]="dataToReset.gameHistory" (change)="dataToReset.gameHistory = !dataToReset.gameHistory" />
+        <label>Historique des parties jouées</label>
+    </div>
+</div>
+<div class="centered">
+    <button id="resetButton" (click)="openConfirmationOverlay = true" [disabled]="!isDataToReset">Réinitialiser</button>
+</div>
+
+<button id="homePageButton" routerLink="/home">Retour à la page d'accueil</button>

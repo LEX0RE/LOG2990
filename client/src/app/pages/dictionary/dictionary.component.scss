@@ -1,0 +1,273 @@
+h1 {
+    margin-top: 4vh;
+    margin-bottom: -3vh;
+    font-family: Inknut Antiqua;
+    font-style: bold;
+    font-size: 7.5vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+
+h2 {
+    margin-bottom: 5vh;
+    font-family: Inknut Antiqua;
+    font-size: 3.5vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.column {
+    height: 60vh;
+    float: left;
+    overflow-x: auto;
+}
+
+table {
+    width: 55vh;
+    height: 50vh;
+    background-color: var(--table-color);
+    border: 0.5vh solid var(--button-border);
+    border-radius: 2vh;
+    color: var(--table-font-color);
+    font-size: 2vh;
+    font-family: var(--title-font);
+}
+
+td {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    text-align: left;
+    font-size: 3vh;
+    margin-left: 3vh;
+    margin-right: 3vh;
+}
+
+tr {
+    height: 0.5vh;
+}
+
+.columnTitle {
+    font-size: 4vh;
+    border-bottom: 1.5vh solid var(--table-title-bottom-border-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-even-child-color);
+}
+
+button {
+    background-color: var(--button-color);
+    border: 0.4vh solid var(--button-border);
+    color: var(--button-font-color);
+    border-radius: 2vh;
+}
+
+.resetButton {
+    width: 25vh;
+    height: 6vh;
+    position: absolute;
+    bottom: 8vh;
+    left: 93.8vh;
+    font-size: 3vh;
+}
+
+.returnButton {
+    width: 20vh;
+    height: 6vh;
+    position: absolute;
+    bottom: 8vh;
+    left: 10vh;
+    font-size: 4vh;
+}
+
+.deleteDictionary,
+.downloadDictionary {
+    background-color: transparent;
+    border: none;
+    flex: 15vh;
+    font-size: 4vh;
+}
+
+.addDictionary {
+    background-color: var(--add-dictionary-background-color);
+    border: 0.2vh solid var(--overlay-border-color);
+    border-radius: 0.8vh;
+    border-radius: 1vh;
+    width: 30vh;
+    height: 5vh;
+    margin-left: 12vh;
+    margin-top: 3vh;
+}
+
+.uploadFile {
+    width: 50vh;
+    height: 5vh;
+    margin-left: 5vh;
+    margin-top: 1.5vh;
+}
+
+.modifyButtons {
+    margin-right: 4vh;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+.deleteDictionary:hover {
+    background-color: transparent;
+    border: none;
+    color: var(--delete-button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.2s;
+}
+
+.downloadDictionary:hover {
+    background-color: transparent;
+    border: none;
+    color: var(-download-dictionary-hover);
+    cursor: pointer;
+    transition: ease-out 0.2s;
+}
+
+#invalid-server {
+    margin-top: 25vh;
+    text-align: center;
+    font-style: bold;
+    font-size: 3vh;
+}
+
+.addText {
+    font-size: 3vh;
+    margin-left: 6vh;
+    margin-right: 4vh;
+}
+
+.warningErrors {
+    font-size: 2.5vh;
+    color: black;
+    margin-left: 4vh;
+    margin-top: 3vh;
+}
+
+.loading {
+    font-size: 4vh;
+    color: black;
+    margin-left: 17vh;
+    margin-top: 3vh;
+}
+
+.loader {
+    margin-top: 4vh;
+    margin-left: 23vh;
+    border: 1vh solid var(--dictionary-loader-border-color);
+    border-top: 1vh solid var(--dictionary-loader-top-border-color);
+    border-radius: 50%;
+    width: 5vh;
+    height: 5vh;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 1.8vh;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dictionary-scroll-bar);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--table-color);
+    border-radius: 5vh;
+    border: 0.3vh solid var(--dictionary-scroll-bar);
+}
+
+.horizontalContainer {
+    display: flex;
+    flex-direction: row;
+    height: 7vh;
+    margin-top: 4vh;
+}
+
+.confirmationButton {
+    margin-left: 5vh;
+    margin-right: 5vh;
+    width: 12vh;
+    height: 7vh;
+    border: 0.3vh solid var(--decisional-button-border-color);
+    font-size: 3vh;
+}
+
+.yesButton {
+    background-color: var(--play-button-color);
+    margin-left: 22vh;
+}
+
+.yesButton:hover {
+    background-color: var(--play-button-border-color);
+}
+
+.noButton {
+    background-color: var(--bad-button-color);
+}
+
+.noButton:hover {
+    background-color: var(--bad-button-hover-color);
+}
+
+.centered {
+    align-items: center;
+    text-align: center;
+}
+
+.confirmationOverlay {
+    width: 80vh;
+    height: 20vh;
+    border: 0.5vh solid var(--overlay-border-color);
+}
+
+.overlay {
+    text-align: center;
+    align-items: center;
+    border-radius: 1.5vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: var(--overlay-background-color);
+}
+
+#screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--greying-screen-color);
+}

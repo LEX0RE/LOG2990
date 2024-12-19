@@ -1,0 +1,20 @@
+<h1>Scrabble {{ gameMode }}</h1>
+<h2>Vous devez attendre que {{ opponentName }} démarre la partie</h2>
+<div *ngIf="!errorGameStart()" class="pulse-container">
+    <div class="dot-pulse"></div>
+</div>
+<div *ngIf="errorGameStart()" class="horizontalContainer">
+    <h3>OUPS!</h3>
+    <h3>Une erreur s'est produite!</h3>
+    <button routerLink="/joinGame">OK</button>
+</div>
+<div class="horizontalContainer">
+    <div id="cancelConfirmation" *ngIf="isCancelConfirmationOverlay">
+        <h2>Êtes-vous sûr(e) de vouloir quitter la salle d'attente?</h2>
+        <button (click)="cancelJoiningGame()" routerLink="/joinGame">OUI</button>
+        <button (click)="isCancelConfirmationOverlay = false">NON</button>
+    </div>
+</div>
+<div class="horizontalContainer" *ngIf="!isCancelConfirmationOverlay">
+    <button (click)="isCancelConfirmationOverlay = true">Annuler</button>
+</div>

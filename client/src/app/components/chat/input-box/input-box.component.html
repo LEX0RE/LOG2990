@@ -1,0 +1,11 @@
+<section>
+    <input
+        autofocus
+        maxlength="512"
+        type="text"
+        [(ngModel)]="textToSend"
+        (keyup.enter)="onEnter($event)"
+        placeholder="Taper un message ou une commande"
+    />
+    <button (click)="onEnter($event)">Envoyer</button>
+</section>

@@ -1,0 +1,23 @@
+<h1>Administration</h1>
+<h2>Meilleurs scores</h2>
+<app-best-scores-boards class="scoreBoards"></app-best-scores-boards>
+
+<div id="screen" *ngIf="openConfirmationOverlay">
+    <div class="confirmationOverlay overlay" *ngIf="openConfirmationOverlay">
+        <h3>Êtes-vous sûr(e) de vouloir réinitialiser les meilleurs scores?</h3>
+        <div class="horizontalContainer centered">
+            <button class="yesButton confirmationButton" (click)="resetBestScores(); openConfirmationOverlay = false">Oui</button>
+            <button class="noButton confirmationButton" (click)="openConfirmationOverlay = false">Non</button>
+        </div>
+    </div>
+</div>
+
+<div id="screen" *ngIf="!isServerValid">
+    <div class="errorOverlay overlay" *ngIf="!isServerValid">
+        <h3>Impossible de réinitialiser les meilleurs scores!</h3>
+        <button class="okButton" (click)="isServerValid = true">OK</button>
+    </div>
+</div>
+
+<button class="resetButton" (click)="openConfirmationOverlay = true">Réinitialiser les meilleurs scores</button>
+<button class="returnButton" routerLink="/admin">← Retour</button>

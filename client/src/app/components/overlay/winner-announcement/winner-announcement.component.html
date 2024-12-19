@@ -1,0 +1,4 @@
+<div *ngIf="isEndGame && open" id="container">
+    <p>{{ winner }} a gagné</p>
+    <div class="positionButton"><button (click)="close()" type="button">OK</button></div>
+</div>

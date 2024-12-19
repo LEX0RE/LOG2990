@@ -1,0 +1,6 @@
+<router-outlet></router-outlet>
+<div id="screen" *ngIf="!socketService.isSocketAlive()">
+    <div id="container">
+        <p id="message">Le serveur ne répond pas</p>
+    </div>
+</div>

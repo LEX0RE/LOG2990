@@ -1,0 +1,30 @@
+<div>
+    <h1>Scrabble {{ gameMode }}</h1>
+    <h2>Choisissez une des options suivantes</h2>
+    <section class="horizontalContainer">
+        <div>
+            <button class="bigButton" (click)="soloGame()" routerLink="/createNewGame">
+                <img src="assets/images/raised_hand_image.png" alt="solo" />
+                <h3>Jouer une partie en solo</h3>
+                <h4>Combattez contre un adversaire virtuel</h4>
+            </button>
+        </div>
+        <div>
+            <button class="bigButton" (click)="multiplayerGame()" routerLink="/createNewGame">
+                <img src="assets/images/tools_image.png" alt="create_multiplayer" />
+                <h3>Créer une partie multijoueur</h3>
+                <h4>Créer votre propre partie et affrontez un autre joueur</h4>
+            </button>
+        </div>
+
+        <div [ngClass]="isAvailableGame ? 'verticalContainer' : ''">
+            <button [ngClass]="isAvailableGame ? 'smallBigButton' : 'bigButton'" routerLink="/joinGame" (click)="multiplayerGame()">
+                <img src="assets/images/earth_image.png" alt="join_multiplayer" />
+                <h3 class="smallerH3">Joindre une partie multijoueur</h3>
+                <h4 class="smallerH4">Rejoignez la partie d'un autre joueur pour l'affronter</h4>
+            </button>
+            <app-random-join-button [buttonText]="'Jouer immédiatement'"></app-random-join-button>
+        </div>
+    </section>
+    <button class="smallButton" (click)="resetGameMode()" routerLink="/home">← Retour</button>
+</div>

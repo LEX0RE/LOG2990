@@ -1,0 +1,13 @@
+<div id="container-tiles">
+    <app-letter id="biggerLetter" [letter]="{ letter: 'A', point: 1 }" [letterSize]="4" [fontSize]="25"></app-letter>
+    <app-letter id="smallerLetter" [letter]="{ letter: 'A', point: 1 }" [letterSize]="2.5" [fontSize]="16"></app-letter>
+
+    <div id="arrow-button-container">
+        <button (click)="onClickUp()" class="arrow-up-button">
+            <div class="arrow arrow-up"></div>
+        </button>
+        <button (click)="onClickDown()" class="arrow-down-button">
+            <div class="arrow arrow-down"></div>
+        </button>
+    </div>
+</div>

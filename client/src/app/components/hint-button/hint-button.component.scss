@@ -1,0 +1,37 @@
+.bulb {
+    width: 6vh;
+    height: 6vh;
+    border-radius: 10vh;
+    cursor: pointer;
+    border: 0.3vh solid var(--button-border);
+}
+
+.bulb:hover {
+    background-color: var(--clearer-button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+p {
+    position: absolute;
+    background-color: var(--tooltip-color);
+    margin-top: -3.8vh;
+    border: 0.3vh solid var(--tooltip-border-color);
+    font-size: 2.3vh;
+    align-items: center;
+    margin-left: -0.4vh;
+
+    padding: 0.6vh;
+    color: var(--button-font-color);
+    border-radius: 1vh;
+}
+#bulb-disabled {
+    background-color: var(--button-disabled-color);
+    border: 3px solid var(--button-color);
+    color: var(--button-disabled-font-color);
+    cursor: default;
+}
+
+.bulb-enabled {
+    background-color: var(--clearer-button-color);
+}

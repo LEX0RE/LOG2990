@@ -1,0 +1,23 @@
+<img *ngIf="win" id="crown" src="assets/images/crown.png" />
+
+<div id="player-container">
+    <div class="container" id="player-stand">
+        <div class="image">
+            <img [ngClass]="[player.turn ? 'player-turn' : 'not-player-turn']" src="assets/images/player.png" />
+        </div>
+        <span id="name" class="information">{{ player.name }} </span>
+    </div>
+    <div class="container">
+        <div id="score" class="information">
+            {{ player.score }}
+        </div>
+        <div *ngIf="player.nLetterLeft < 7">
+            <div id="miniTile">
+                <div *ngFor="let message of letterLeft" class="tile"></div>
+            </div>
+            <div id="easel"></div>
+
+            <b id="nbLetter">{{ player.nLetterLeft }} lettres restantes</b>
+        </div>
+    </div>
+</div>

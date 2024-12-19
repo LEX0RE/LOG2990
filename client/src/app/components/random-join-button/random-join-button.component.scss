@@ -1,0 +1,24 @@
+button {
+    border-radius: 1.7vh;
+    text-align: center;
+    background-color: var(--button-color);
+    color: var(--button-font-color);
+    font-family: var(--font);
+    border: 0.3vh solid var(--button-border);
+    font-size: 2.3vh;
+    height: 100%;
+    width: 100%;
+}
+
+button[disabled] {
+    border-color: var(--button-disabled-border-color);
+    background-color: var(--button-disabled-color);
+    color: var(--button-disabled-font-color);
+    cursor: default;
+}
+
+button:enabled:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}

@@ -1,0 +1,262 @@
+h1 {
+    font-family: var(--title-font);
+    font-style: bold;
+    font-size: 7.5vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+
+h2,
+form,
+span {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 3vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+#error-message,
+#same-name {
+    color: var(--error-font-color);
+    font-weight: lighter;
+    font-size: 2vh;
+}
+
+h3 {
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.horizontalContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#games-header {
+    justify-content: flex-start;
+    width: 80vh;
+    column-gap: 10vh;
+    font-size: 3vh;
+    font-weight: bold;
+    border-bottom: 0.8vh solid var(--button-border);
+}
+
+input {
+    width: 30vh;
+    height: 3.5vh;
+    font-size: 4vh;
+}
+#games-header > h3 {
+    margin-left: 6vh;
+}
+
+.verticalContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1vh 0;
+}
+
+.gameDisplay {
+    background-color: var(--game-display-background-color);
+    border: 0.5vh solid var(--table-border-color);
+    border-radius: 2vh;
+    color: var(--table-font-color);
+    font-size: 2vh;
+    font-family: var(--title-font);
+}
+
+#game-list {
+    width: 80vh;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+#game-list::-webkit-scrollbar {
+    width: 1.3vh;
+}
+
+#game-list::-webkit-scrollbar-track {
+    background: var(--scroll-bar-background-color);
+}
+
+#game-list::-webkit-scrollbar-thumb {
+    background: var(--button-border);
+    border-radius: 1vh;
+}
+
+.gameDisplay > #game-list > .gameItem {
+    background-color: var(--button-color);
+    margin-top: 1vh;
+    border: 0.02vh solid var(--game-item-border-color);
+    border-radius: 1vh;
+    width: 99.3%;
+    font-weight: lighter;
+}
+
+img {
+    width: 10vh;
+    height: 10vh;
+}
+
+.askNameOverlay {
+    height: 64vh;
+    width: 90vh;
+    align-items: center;
+    background-color: var(--overlay-background-color);
+}
+
+.position {
+    border-radius: 3vh;
+    background-color: var(--overlay-background-color);
+
+    border: 0.4vh solid var(--overlay-border-color);
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+}
+
+.rejection {
+    height: 25vh;
+    width: 50vh;
+    border: 2px solid var(--overlay-border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.returnButton {
+    width: 20vh;
+    height: 8vh;
+    position: absolute;
+    bottom: 10vh;
+    left: 10vh;
+    background-color: var(--button-color);
+    border: 0.4vh solid var(--button-border);
+    color: var(--button-font-color);
+    border-radius: 2vh;
+    font-size: 4vh;
+}
+
+button:hover,
+#join-button:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+button {
+    background-color: var(--button-color);
+    border: 0.3vh solid var(--button-border);
+    font-size: 3vh;
+    color: var(--button-font-color);
+    border-radius: 4vh;
+    width: 20vh;
+    margin-top: 15vh;
+}
+
+button[disabled] {
+    border-color: var(--button-disabled-border-color);
+    background-color: var(--button-disabled-color);
+}
+
+#confirmName {
+    width: 30%;
+    height: 8vh;
+    border-radius: 3vh;
+    font-size: 2.5vh;
+    white-space: nowrap;
+    background-color: var(--play-button-color);
+    border: 0.5vh solid var(--play-button-border-color);
+}
+
+#confirmName:hover {
+    background-color: var(--play-button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+#cancel {
+    width: 20%;
+    height: 8vh;
+    border-radius: 3vh;
+}
+
+#screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--greying-screen-color);
+}
+#dictionnary-name,
+#timer {
+    width: 30vh;
+    height: 3vh;
+    border: 1.5px solid var(--game-item-info-color);
+    border-radius: 1vh;
+    color: var(--game-item-info-color);
+    font-family: var(--title-font);
+}
+#dictionnary-name {
+    background-color: var(--button-font-color);
+}
+#timer {
+    background-color: var(--button-font-color);
+}
+#button {
+    margin-top: -8vh;
+}
+
+#confirmName[disabled] {
+    background-color: var(--button-disabled-color);
+    border: 3px solid var(--button-color);
+    color: var(--button-disabled-font-color);
+    cursor: default;
+}
+
+#join-button {
+    background-color: var(--clearer-button-color);
+    border-radius: 6vh;
+    margin-left: -2vh;
+    width: 8vh;
+    height: 8vh;
+}
+#random {
+    height: 6vh;
+}
+
+.rejection-button {
+    margin-top: 3vh;
+}
+#cantJoinGame {
+    font-size: 2.3vh;
+    height: 15vh;
+    width: 50vh;
+    margin-left: 155vh;
+}

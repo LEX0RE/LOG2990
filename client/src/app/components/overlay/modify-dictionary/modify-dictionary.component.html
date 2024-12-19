@@ -1,0 +1,17 @@
+<button class="modifyDictionary" (click)="modify()">
+    <i class="fa fa-pencil"></i>
+</button>
+<div class="overlayContainer" *ngIf="isVisible">
+    <p>Nom du dictionnaire:</p>
+    <div *ngIf="title.errors" class="warningErrors">Le nom doit être entre {{ minCharactersTitle }} et {{ maxCharactersTitle }} caractères.</div>
+    <input type="text" [formControl]="title" />
+    <p>Description :</p>
+    <div *ngIf="description.errors" class="warningErrors">
+        La description doit être entre {{ minCharactersDescription }} et {{ maxCharactersDescription }} caractères.
+    </div>
+    <textarea type="text" [formControl]="description"></textarea>
+    <div>
+        <button class="modify" (click)="cancel()">Annuler</button>
+        <button class="modify" (click)="modifyDictionary()" [disabled]="title.errors || description.errors">Enregistrer</button>
+    </div>
+</div>

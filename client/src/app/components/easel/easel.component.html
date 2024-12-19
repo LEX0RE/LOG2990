@@ -1,0 +1,55 @@
+<p id="errorEasel" *ngIf="errorEasel">La lettre {{ errorEasel }} n'est pas dans votre chevalet</p>
+
+<div id="component-container" appDebounceKeyPressed (debouncedKeyDown)="onKeyPressed($event)" (focusOut)="onCancelClick()">
+    <div id="easel-section">
+        <div class="container-rack-letter">
+            <div *ngFor="let letter of letters; let i = index" [attr.data-index]="i">
+                <app-letter
+                    [letter]="letter.toCommonLetter"
+                    [letterSize]="letterSize"
+                    [fontSize]="fontSize"
+                    appDebounceClick
+                    (debounceClick)="onLeftClick(i)"
+                    appDebounceRightClick
+                    (debounceRightClick)="onRightClick(i)"
+                    [attr.selection]="letter.selection"
+                ></app-letter>
+            </div>
+        </div>
+        <div *ngIf="!letters.length" id="keep-easel-in-place"></div>
+        <div id="easel"></div>
+    </div>
+    <div *ngIf="isSelected">
+        <p *ngIf="isCancelTouched" id="cancel-phrase">Annuler</p>
+        <img
+            id="cancel-button"
+            (mouseenter)="isCancelTouched = true"
+            (mouseleave)="isCancelTouched = false"
+            (click)="isCancelTouched = false"
+            src="assets/images/cancel_trade_button.png"
+            appDebounceClick
+            (debounceClick)="onCancelClick()"
+            [ngClass]="!isGoodToExchange ? 'change-cancel-position' : ''"
+        />
+    </div>
+
+    <div *ngIf="isGoodToExchange">
+        <div *ngIf="isTradeAllowed">
+            <p *ngIf="isTradeTouched">Échanger</p>
+
+            <img
+                src="assets/images/trade_button.png"
+                alt="trade-button"
+                appDebounceClick
+                (debounceClick)="onClickExchange()"
+                class="trade-button"
+                id="trade-button-enabled"
+                (mouseenter)="isTradeTouched = true"
+                (mouseleave)="isTradeTouched = false"
+                (click)="isTradeTouched = false"
+            />
+        </div>
+
+        <img *ngIf="!isTradeAllowed" src="assets/images/trade_button.png" alt="trade-button" class="trade-button" id="trade-button-disabled" />
+    </div>
+</div>

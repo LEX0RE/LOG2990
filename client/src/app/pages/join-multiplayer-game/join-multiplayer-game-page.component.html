@@ -1,0 +1,63 @@
+<div id="screen" *ngIf="tryingToJoinGame || getHasBeenRejected()"></div>
+
+<h1>Scrabble {{ gameMode }}</h1>
+<h2>Joindre une partie multijoueur</h2>
+<div class="askNameOverlay position" *ngIf="tryingToJoinGame">
+    <h1>Rejoindre {{ getOpponentName() }}</h1>
+    <form class="verticalContainer" [formGroup]="askPlayerName" (ngSubmit)="onSubmit()">
+        <div class="verticalContainer">
+            <label for="player-name">Votre nom de joueur :</label>
+
+            <input id="player-name" type="text" formControlName="playerName" />
+            <span id="error-message" *ngIf="askPlayerName.controls['playerName'].errors"
+                >Veuillez saisir un nom de joueur entre {{ getMinCharacters() }} et {{ getMaxCharacters() }} caractères et ne contenant que des
+                lettres</span
+            >
+            <span id="same-name" *ngIf="twoPlayersHaveSameName">Veuillez choisir un nom différent du joueur que vous essayez de rejoindre</span>
+        </div>
+        <div class="verticalContainer">
+            <label for="dictionnary-name">Dictionnaire :</label>
+            <div id="dictionnary-name">{{ dictionaryTitle }}</div>
+        </div>
+        <div class="verticalContainer">
+            <label for="timer">Durée d'un tour :</label>
+            <div id="timer">{{ timer }}</div>
+        </div>
+        <div class="horizontalContainer" id="button">
+            <button id="cancel" type="button" (click)="tryingToJoinGame = false">← Retour</button>
+            <button id="confirmName" type="submit" [disabled]="!askPlayerName.valid">Rejoindre la partie</button>
+        </div>
+    </form>
+</div>
+<div class="rejection position" *ngIf="getHasBeenRejected()">
+    <h2>Vous avez été rejeté de la salle d'attente</h2>
+    <button class="rejection-button" (click)="closeRejectedOverlay()">OK</button>
+</div>
+<div id="cantJoinGame" class="position" *ngIf="!isAbleToJoinGame">
+    <h3>OUPS</h3>
+    <h3>Impossible de joindre la partie!</h3>
+</div>
+<div class="verticalContainer">
+    <div class="gameDisplay">
+        <div class="horizontalContainer" id="games-header">
+            <h3>Joueur</h3>
+            <h3>Paramètres de la partie</h3>
+        </div>
+        <div id="game-list">
+            <div class="horizontalContainer gameItem" *ngFor="let game of availableGames">
+                <h3 style="width: 24%">{{ game.player1Name }}</h3>
+                <div class="horizontalContainer w">
+                    <img src="assets/images/timer.png" alt="timer" />
+                    <h3>{{ formatTimer(game.turnTimer) }}</h3>
+                    <img src="assets/images/dictionary.png" alt="dictionary" />
+                    <h3>{{ game.dictionaryTitle }}</h3>
+                    <img src="assets/images/join_icon.png" alt="join_icon" (click)="tryJoiningGame(game)" id="join-button" />
+                </div>
+            </div>
+        </div>
+        <div id="random">
+            <app-random-join-button buttonText="Placement aléatoire" [joinGameCallBack]="joinRandomGame()"></app-random-join-button>
+        </div>
+    </div>
+</div>
+<button class="returnButton" routerLink="/gameNavigation">← Retour</button>

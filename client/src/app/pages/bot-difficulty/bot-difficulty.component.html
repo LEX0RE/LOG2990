@@ -1,0 +1,20 @@
+<div class="verticalContainer">
+    <h1>Scrabble</h1>
+    <h2>Choisir le niveau de difficulté</h2>
+
+    <app-unavailable-dictionary *ngIf="openUnavailableDictionary()"></app-unavailable-dictionary>
+    <section class="horizontalContainer">
+        <button id="difficultyButton" class="{{ 'easyMode' + easyMode }}" (click)="changeToEasy()">
+            <span>Débutant</span>
+            <img src="assets/images/easy.png" />
+        </button>
+        <button id="difficultyButton" class="{{ 'hardMode' + hardMode }}" (click)="changeToHard()">
+            <span>Expert</span>
+            <img src="assets/images/hard.png" />
+        </button>
+    </section>
+    <section class="horizontalContainer">
+        <button id="return" class="menuButton" routerLink="/gameNavigation">← Retour</button>
+        <button id="startGame" class="menuButton" [disabled]="start" (click)="onClick()">Commencer la partie !</button>
+    </section>
+</div>

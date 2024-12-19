@@ -1,0 +1,5 @@
+<section>
+    <ul #scrollBar>
+        <li *ngFor="let message of messages" [attr.sender]="setCategory(message.senderName)">{{ message.content }}</li>
+    </ul>
+</section>

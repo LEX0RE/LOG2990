@@ -1,0 +1,45 @@
+<div *ngIf="isServerValid; else serverInvalid" class="horizontalContainer">
+    <div class="column">
+        <h2>Mode de jeu classique</h2>
+        <table id="mode-classique">
+            <tbody>
+                <tr>
+                    <th class="columnTitle">Score</th>
+                    <th class="columnTitle">Joueur</th>
+                </tr>
+                <tr *ngFor="let bestScore of bestScoresClassic; let indexOfElement = index">
+                    <td>{{ bestScore.score }}</td>
+                    <td [ngStyle]="{ 'font-size': bestScore.playerName.length > 2 ? newFontSize(bestScore) : '3vh' }">
+                        {{ bestScore.playerName }}
+                    </td>
+                    <img *ngIf="indexOfElement === 0" src="assets/images/first_place.png" class="place" />
+                    <img *ngIf="indexOfElement === 1" src="assets/images/second_place.png" class="place" />
+                    <img *ngIf="indexOfElement === 2" src="assets/images/third_place.png" class="place" />
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="column">
+        <h2>Mode de jeu LOG2990</h2>
+        <table id="mode-log2990">
+            <tbody>
+                <tr>
+                    <th class="columnTitle">Score</th>
+                    <th class="columnTitle">Joueur</th>
+                </tr>
+                <tr *ngFor="let bestScore of bestScoresLog; let indexOfElement = index">
+                    <td>{{ bestScore.score }}</td>
+                    <td [ngStyle]="{ 'font-size': bestScore.playerName.length > 2 ? newFontSize(bestScore) : '3vh' }">
+                        {{ bestScore.playerName }}
+                    </td>
+                    <img *ngIf="indexOfElement === 0" src="assets/images/first_place.png" class="place" />
+                    <img *ngIf="indexOfElement === 1" src="assets/images/second_place.png" class="place" />
+                    <img *ngIf="indexOfElement === 2" src="assets/images/third_place.png" class="place" />
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<ng-template #serverInvalid>
+    <div id="invalid-server">Il y a eu un problème avec la base de données.</div>
+</ng-template>

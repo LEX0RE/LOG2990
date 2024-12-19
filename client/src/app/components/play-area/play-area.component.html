@@ -1,0 +1,13 @@
+<div id="grid-container">
+    <p>Scrabble!</p>
+    <div appDebounceKeyPressed (debouncedKeyDown)="buttonDetect($event)" (focusOut)="onFocusOut()">
+        <canvas id="canvas" #gridCanvas [attr.width]="size" [attr.height]="size" (click)="onMouseDown($event)"></canvas>
+        <div id="action-button">
+            <button [disabled]="!isPlacement" class="play-btn" type="button" appDebounceClick (debounceClick)="onClickPlay()">Placer</button>
+            <button [disabled]="!gameUpdate.playerInfo.turn" class="pass-btn" type="button" appDebounceClick (debounceClick)="onClickPass()">
+                Passer
+            </button>
+        </div>
+    </div>
+    <app-easel></app-easel>
+</div>

@@ -1,0 +1,267 @@
+h1 {
+    margin-top: 4vh;
+    margin-bottom: -3vh;
+    font-family: var(--title-font);
+    font-style: bold;
+    font-size: 7.5vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+
+h2 {
+    margin-bottom: 5vh;
+    font-family: var(--title-font);
+    font-size: 3.5vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+
+.row {
+    margin-left: 47vh;
+}
+
+.column {
+    height: 60vh;
+    float: left;
+    overflow-x: auto;
+}
+
+.column.expert {
+    margin-left: 10vh;
+}
+
+table {
+    width: 50vh;
+    height: 60vh;
+    background-color: var(--table-color);
+    border: 0.5vh solid var(--table-border-color);
+    border-radius: 2vh;
+    color: var(--table-font-color);
+    font-size: 2vh;
+    font-family: var(--title-font);
+}
+
+td {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    text-align: left;
+    font-size: 3vh;
+    padding: 0.5vh;
+}
+
+.columnTitle {
+    font-size: 4vh;
+    border-bottom: 1.5vh solid var(--table-title-bottom-border-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-even-child-color);
+}
+
+button {
+    background-color: var(--button-color);
+    border: 0.4vh solid var(--button-border);
+    color: var(--button-font-color);
+    border-radius: 2vh;
+}
+
+button[disabled] {
+    border-color: var(--button-disabled-border-color);
+    background-color: var(--button-disabled-color);
+    color: var(--button-disabled-font-color);
+    cursor: default;
+}
+
+.resetButton {
+    width: 25vh;
+    height: 6vh;
+    position: absolute;
+    bottom: 8vh;
+    left: 89.5vh;
+    font-size: 3vh;
+}
+
+.returnButton {
+    width: 20vh;
+    height: 8vh;
+    position: absolute;
+    bottom: 10vh;
+    left: 10vh;
+    font-size: 4vh;
+}
+
+.deleteName {
+    background-color: transparent;
+    border: none;
+    flex: 15vh;
+    font-size: 4vh;
+}
+
+.modifyName {
+    background-color: transparent;
+    border: none;
+    flex: 15vh;
+    font-size: 3.5vh;
+}
+
+.addName {
+    background-color: var(--clearer-button-color);
+    border: 0.2vh solid var(--clearer-button-border);
+    border-radius: 0.5vh;
+    font-size: 3vh;
+    height: 4.5vh;
+    width: 4.5vh;
+}
+
+.cancelButton {
+    background-color: var(--clearer-button-color);
+    margin-left: 10vh;
+    margin-top: 1vh;
+    border: 0.2vh solid var(--clearer-button-border);
+    border-radius: 0.5vh;
+}
+
+.modifyButton {
+    background-color: var(--clearer-button-color);
+    margin-left: 4vh;
+    margin-top: 1vh;
+    border: 0.2vh solid var(--clearer-button-border);
+    border-radius: 0.8vh;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+.modifyName:hover {
+    background-color: transparent;
+    border: none;
+    color: var(--modify-button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.2s;
+}
+
+.deleteName:hover {
+    background-color: transparent;
+    border: none;
+    color: var(--delete-button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.2s;
+}
+
+.addName:hover {
+    background-color: var(--clearer-button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+#invalid-server {
+    margin-top: 25vh;
+    text-align: center;
+    font-style: bold;
+    font-size: 3vh;
+}
+
+input {
+    margin-top: 2vh;
+    margin-left: 2vh;
+    margin-bottom: 2vh;
+    margin-right: 2vh;
+    width: 30vh;
+    height: 3.8vh;
+    background-color: var(--background-color);
+    border: 0.25vh solid var(--input-border-color);
+    border-radius: 0.8vh;
+}
+
+div {
+    font-size: 2vh;
+}
+
+::-webkit-scrollbar {
+    width: 1.8vh;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scroll-bar-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--button-border);
+    border-radius: 5vh;
+}
+
+.horizontalContainer {
+    display: flex;
+    flex-direction: row;
+    height: 7vh;
+    margin-top: 4vh;
+}
+
+.confirmationButton {
+    margin-left: 5vh;
+    margin-right: 5vh;
+    width: 12vh;
+    height: 7vh;
+    border: 0.3vh solid var(--decisional-button-border-color);
+    font-size: 3vh;
+}
+
+.yesButton {
+    background-color: var(--play-button-color);
+    margin-left: 22vh;
+}
+
+.yesButton:hover {
+    background-color: var(--play-button-border-color);
+}
+
+.noButton {
+    background-color: var(--bad-button-color);
+}
+
+.noButton:hover {
+    background-color: var(--bad-button-hover-color);
+}
+
+.centered {
+    align-items: center;
+    text-align: center;
+}
+
+.confirmationOverlay {
+    width: 80vh;
+    height: 20vh;
+    border: 0.5vh solid var(--overlay-border-color);
+}
+
+.overlay {
+    text-align: center;
+    align-items: center;
+    border-radius: 1.5vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: var(--overlay-background-color);
+}
+
+#screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--greying-screen-color);
+}

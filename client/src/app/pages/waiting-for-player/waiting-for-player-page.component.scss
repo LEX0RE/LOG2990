@@ -1,0 +1,185 @@
+button {
+    background-color: var(--button-color);
+    border: 0.3vh solid var(--button-border);
+    font-size: 3vh;
+    color: var(--button-font-color);
+    border-radius: 4vh;
+    height: 7vh;
+    width: 20vh;
+    margin: 3vh;
+    margin-top: 15vh;
+}
+
+button[disabled],
+#start-game[disabled] {
+    border-color: var(--button-disabled-border-color);
+    background-color: var(--button-disabled-color);
+    color: var(--button-disabled-font-color);
+    cursor: default;
+}
+button:enabled:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+h1 {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    font-family: var(--title-font);
+    font-style: bold;
+    font-size: 7.5vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+
+h2 {
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 3vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh var(--shadow-color), 0.01vh 0vh var(--shadow-color), 0vh 0.01vh var(--shadow-color), -0.01vh 0vh var(--shadow-color);
+}
+
+.horizontalContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.verticalContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.pulse-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 5vh;
+}
+
+.overlay {
+    justify-content: center;
+    align-items: center;
+    border: 0.8vh solid var(--overlay-border-color);
+    border-radius: 4vh;
+    width: 60vh;
+    height: 30vh;
+    background-color: var(--overlay-background-color);
+}
+
+.okButton {
+    border: 0.4vh solid var(--button-border);
+    border-radius: 2vh;
+    margin-top: 8vh;
+}
+
+// Source pour le .dot-pulse : https://codepen.io/nzbin/pen/GGrXbp
+
+.dot-pulse {
+    position: relative;
+    left: -9999px;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 5vh;
+    background-color: var(--waiting-dot-color);
+    color: var(--waiting-dot-color);
+    box-shadow: 9999px 0 0 -5vh var(--waiting-dot-color);
+    animation: dotPulse 1.5s infinite linear;
+    animation-delay: 0.25s;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 5vh;
+    background-color: var(--waiting-dot-color);
+    color: var(--waiting-dot-color);
+}
+
+.dot-pulse::before {
+    box-shadow: 10vh 0 0 -5px var(--waiting-dot-color);
+    animation: dotPulseBefore 1.5s infinite linear;
+    animation-delay: 0s;
+    right: 7vh;
+}
+
+.dot-pulse::after {
+    box-shadow: 10014px 0 0 -5px var(--waiting-dot-color);
+    animation: dotPulseAfter 1.5s infinite linear;
+    animation-delay: 0.5s;
+    left: 7vh;
+}
+
+@keyframes dotPulseBefore {
+    0% {
+        box-shadow: 9984px 0 0 -5px var(--waiting-dot-color);
+    }
+    30% {
+        box-shadow: 9984px 0 0 2px var(--waiting-dot-color);
+    }
+    60%,
+    100% {
+        box-shadow: 9984px 0 0 -5px var(--waiting-dot-color);
+    }
+}
+
+@keyframes dotPulse {
+    0% {
+        box-shadow: 9999px 0 0 -5px var(--waiting-dot-color);
+    }
+    30% {
+        box-shadow: 9999px 0 0 2px var(--waiting-dot-color);
+    }
+    60%,
+    100% {
+        box-shadow: 9999px 0 0 -5px var(--waiting-dot-color);
+    }
+}
+
+@keyframes dotPulseAfter {
+    0% {
+        box-shadow: 10014px 0 0 -5px var(--waiting-dot-color);
+    }
+    30% {
+        box-shadow: 10014px 0 0 2px var(--waiting-dot-color);
+    }
+    60%,
+    100% {
+        box-shadow: 10014px 0 0 -5px var(--waiting-dot-color);
+    }
+}
+
+#start-game {
+    background-color: var(--play-button-color);
+    border: 0.5vh solid var(--play-button-border-color);
+}
+
+#start-game:enabled:hover {
+    background-color: var(--play-button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}

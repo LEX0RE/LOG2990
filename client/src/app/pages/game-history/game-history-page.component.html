@@ -1,0 +1,62 @@
+<h1>Administration</h1>
+<h2>Historique des parties jouées</h2>
+
+<div id="screen" *ngIf="openConfirmationOverlay">
+    <div class="confirmationOverlay overlay" *ngIf="openConfirmationOverlay">
+        <h3>Êtes-vous sûr(e) de vouloir réinitialiser l'historique des parties?</h3>
+        <div class="horizontalContainer centered">
+            <button class="yesButton confirmationButton" (click)="resetHistory(); openConfirmationOverlay = false">Oui</button>
+            <button class="noButton confirmationButton" (click)="openConfirmationOverlay = false">Non</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isServerValid; else serverInvalid" id="historyContainer">
+    <div id="tableWrapper">
+        <table class="historyTable">
+            <thead>
+                <tr>
+                    <th class="columnTitle" id="date">Début de partie</th>
+                    <th class="columnTitle" id="duration">Durée</th>
+                    <th class="columnTitle" id="players">Joueurs</th>
+                    <th class="columnTitle" id="scores">Pointage</th>
+                    <th class="columnTitle" id="gameMode">Mode de jeu</th>
+                    <th class="columnTitle" id="other">Abandon</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let gameHistory of gamesInfoHistory">
+                    <td headers="date">
+                        <p>{{ formatDate(gameHistory.beginningDate) }}</p>
+                        <p>{{ formatTime(gameHistory.beginningDate) }}</p>
+                    </td>
+                    <td headers="duration">
+                        <p>{{ formatDuration(gameHistory.duration) }}</p>
+                    </td>
+                    <td headers="players">
+                        <p>{{ gameHistory.player1.name }}</p>
+                        <p>{{ gameHistory.player2.name }}</p>
+                    </td>
+                    <td headers="scores">
+                        <p>{{ gameHistory.player1.score }}</p>
+                        <p>{{ gameHistory.player2.score }}</p>
+                    </td>
+                    <td headers="gameMode">
+                        <p>{{ gameHistory.gameModeName }}</p>
+                    </td>
+                    <td headers="other">
+                        <p *ngIf="gameHistory.isSurrendered">Oui</p>
+                        <p *ngIf="!gameHistory.isSurrendered">Non</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button id="resetButton" (click)="openConfirmationOverlay = true">Réinitialiser</button>
+</div>
+<ng-template #serverInvalid>
+    <div id="invalid-server">Il y a eu un problème avec la base de données.</div>
+</ng-template>
+
+<button id="returnButton" routerLink="/admin">← Retour</button>

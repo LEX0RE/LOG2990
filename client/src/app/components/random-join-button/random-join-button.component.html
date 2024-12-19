@@ -1,0 +1,3 @@
+<button *ngIf="this.availableGames.length !== 0" [disabled]="isGameNotAvailable" appDebounceClick (debounceClick)="joinRandomGame()">
+    {{ buttonText }}
+</button>

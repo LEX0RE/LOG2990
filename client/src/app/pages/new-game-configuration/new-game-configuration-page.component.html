@@ -1,0 +1,31 @@
+<div class="verticalContainer">
+    <h1>Scrabble {{ gameMode }}</h1>
+    <h2>Configurer les paramètres de la partie</h2>
+    <app-invalid-game-mode *ngIf="!hasValidGameMode()"></app-invalid-game-mode>
+    <app-error-creating-game *ngIf="openErrorCreatingGameOverlay()"></app-error-creating-game>
+    <form [formGroup]="newGameConfigForm" class="verticalContainer" (ngSubmit)="onSubmit()">
+        <label>Votre nom de joueur :</label>
+        <input type="text" formControlName="playerName" />
+        <span *ngIf="newGameConfigForm.controls['playerName'].errors"
+            >Veuillez saisir un nom de joueur entre {{ minCharacters }} et {{ maxCharacters }} caractères et ne contenant que des lettres</span
+        >
+        <label>Dictionnaire :</label>
+        <select formControlName="dictionary" (click)="changeDictionaryDescription()" name="dictionary_form" title="dictionary_form">
+            <option *ngFor="let dictionary of dictionaries" [selected]="dictionary.title === 'Français'">{{ dictionary.title }}</option>
+        </select>
+        <span>Description du dictionnaire : {{ dictionaryDescription }}</span>
+        <label> Durée d'un tour : </label>
+        <section class="horizontalContainer">
+            <input class="uneditableInput" type="text" readonly formControlName="turnDuration" />
+            <section class="verticalContainer">
+                <img id="increment" src="assets/images/triangle.jpg" (click)="incrementTurnDuration()" alt="increment" />
+                <img id="decrement" src="assets/images/triangle.jpg" (click)="decrementTurnDuration()" alt="decrement" />
+            </section>
+        </section>
+
+        <button id="createGameButton" type="submit" [disabled]="!newGameConfigForm.valid">
+            {{ isMultiplayer() ? 'Créer la partie' : 'Suivant' }}
+        </button>
+    </form>
+    <button id="returnButton" routerLink="/gameNavigation">← Retour</button>
+</div>

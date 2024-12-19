@@ -1,0 +1,50 @@
+#container {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20vh;
+    width: 60vh;
+    text-align: center;
+    border: 0.4vh solid black;
+    background-color: var(--background-color);
+    border-radius: 3vh;
+}
+
+#message {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 4vh;
+    color: var(--title-color);
+    text-shadow: 0vh -0.01vh black, 0.01vh 0vh black, 0vh 0.01vh black, -0.01vh 0vh black;
+    margin-top: 6.8vh;
+}
+
+#screen {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 12;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#screen {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 12;
+    background-color: rgba(0, 0, 0, 0.6);
+}

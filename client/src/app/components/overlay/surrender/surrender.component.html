@@ -1,0 +1,14 @@
+<button *ngIf="!isEndGame" id="surrender" (click)="change = true">Abandonner</button>
+
+<div class="container" *ngIf="!isEndGame">
+    <div *ngIf="change">
+        <div id="screen"></div>
+        <div class="modal">
+            Êtes-vous sur de vouloir abandonner ?
+            <div class="positionButton">
+                <button class="yes" (click)="onClick()" routerLink="/home">OUI</button>
+                <button (click)="change = false" class="no">NON</button>
+            </div>
+        </div>
+    </div>
+</div>

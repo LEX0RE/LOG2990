@@ -1,0 +1,187 @@
+h1 {
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    font-family: var(--title-font);
+    font-style: bold;
+    font-size: 7vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.1vh var(--shadow-color), 0.1vh 0vh var(--shadow-color), 0vh 0.1vh var(--shadow-color), -0.1vh 0vh var(--shadow-color);
+}
+
+h2 {
+    font-family: var(--title-font);
+    font-style: bold;
+    font-size: 4vh;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: var(--title-color);
+    text-shadow: 0vh -0.1vh var(--shadow-color), 0.1vh 0vh var(--shadow-color), 0vh 0.1vh var(--shadow-color), -0.1vh 0vh var(--shadow-color);
+}
+
+h3 {
+    margin: 5vh;
+    font-size: 3vh;
+}
+
+.gridContainer {
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 5vh;
+    display: grid;
+    grid-template-columns: 50vh 50vh;
+    grid-template-rows: 15vh 15vh;
+    width: 50%;
+}
+
+.smallGridContainer {
+    align-items: center;
+    text-align: left;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50vh 50vh;
+    grid-template-rows: 10vh 10vh;
+    width: 50%;
+}
+
+.gridTile {
+    display: inline;
+    align-items: center;
+    text-align: center;
+    height: 8vh;
+}
+
+.leftMargin {
+    margin-left: 6vh;
+}
+
+.rightMargin {
+    margin-right: 6vh;
+}
+
+button {
+    text-align: center;
+    border-radius: 1.5vh;
+    border: 0.3vh solid var(--button-border);
+    background-color: var(--button-color);
+    color: var(--button-font-color);
+    font-family: var(--font);
+    font-size: 2.5vh;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+button[disabled] {
+    border-color: var(--button-disabled-border-color);
+    background-color: var(--button-disabled-color);
+    color: var(--button-disabled-font-color);
+    cursor: default;
+}
+
+hr {
+    border-top: 0.3vh solid var(--seperator);
+    width: 75%;
+    margin-top: 3vh;
+}
+
+label {
+    font-family: var(--font);
+    font-size: 3vh;
+    color: var(--title-color);
+    padding-left: 1vh;
+    vertical-align: middle;
+}
+
+.centered {
+    text-align: center;
+}
+
+#resetButton {
+    width: 20vh;
+    height: 6vh;
+}
+
+input[type='checkbox'] {
+    width: 3vh;
+    height: 3vh;
+    vertical-align: middle;
+}
+
+#homePageButton {
+    position: fixed;
+    font-size: 2vh;
+    margin-left: 5vh;
+    margin-top: 2vh;
+    width: 26vh;
+    height: 6vh;
+}
+
+.overlay {
+    text-align: center;
+    align-items: center;
+    border-radius: 1.5vh;
+    border: 0.5vh solid var(--overlay-border-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: var(--overlay-background-color);
+}
+
+.overlayMessage {
+    white-space: pre-wrap;
+}
+
+.confirmationButton {
+    margin-left: 5vh;
+    margin-right: 5vh;
+    width: 12vh;
+    height: 7vh;
+    border: 0.3vh solid var(--decisional-button-border-color);
+    font-size: 3vh;
+}
+
+.yesButton {
+    background-color: var(--play-button-color);
+}
+
+.yesButton:hover {
+    background-color: var(--play-button-border-color);
+}
+
+.noButton {
+    background-color: var(--bad-button-color);
+}
+
+.noButton:hover {
+    background-color: var(--bad-button-hover-color);
+}
+
+.buttonContainer {
+    margin-bottom: 5vh;
+}
+
+.okButton {
+    width: 12vh;
+    height: 7vh;
+    font-size: 3.5vh;
+    margin-bottom: 5vh;
+}
+#screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--greying-screen-color);
+}

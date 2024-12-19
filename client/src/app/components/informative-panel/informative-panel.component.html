@@ -1,0 +1,45 @@
+<div id="informativePanel">
+    <app-player-information [player]="opponent" [win]="decision === 3"></app-player-information>
+    <div *ngIf="otherGoal">
+        <p class="objectiveStyle">L'objectif adverse</p>
+        <app-goal [goal]="otherGoal"></app-goal>
+    </div>
+
+    <div>
+        <div class="space"></div>
+        <div id="division">
+            <div>
+                <p class="timer">{{ timer }}</p>
+                <img src="assets/images/clock.png" alt="clock" class="timer-img" style="z-index: -6" />
+            </div>
+            <p *ngIf="isImageTouched" id="information">Réserve</p>
+
+            <img
+                (click)="sendStash()"
+                src="assets/images/bag.png"
+                class="bag"
+                (mouseenter)="isImageTouched = true"
+                (mouseleave)="isImageTouched = false"
+            />
+
+            <div>
+                <p class="remainingLetter">{{ remainingLetter }}<br />Lettres</p>
+            </div>
+        </div>
+
+        <div *ngIf="publicGoal1">
+            <p class="objectiveStyle">Objectif Communs</p>
+
+            <app-goal [goal]="publicGoal1"></app-goal>
+            <app-goal [goal]="publicGoal2"></app-goal>
+        </div>
+
+        <div class="space"></div>
+    </div>
+
+    <app-player-information [player]="player" [win]="decision === 2"></app-player-information>
+    <div *ngIf="myGoal">
+        <p class="objectiveStyle">Mon objectif</p>
+        <app-goal [goal]="myGoal"></app-goal>
+    </div>
+</div>

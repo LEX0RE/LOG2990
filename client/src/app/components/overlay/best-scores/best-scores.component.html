@@ -1,0 +1,7 @@
+<div *ngIf="bestScoreVisible" id="best-score-container">
+    <h1>Meilleurs scores</h1>
+    <app-best-scores-boards></app-best-scores-boards>
+
+    <button class="closeButton" (click)="bestScoreVisible = false">Fermer</button>
+</div>
+<button class="bestScoreButton" (click)="bestScoreVisible = true">Meilleurs scores</button>

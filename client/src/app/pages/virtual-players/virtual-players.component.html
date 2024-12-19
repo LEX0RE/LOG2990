@@ -1,0 +1,125 @@
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+<h1>Administration</h1>
+<h2>Gestion des joueurs virtuels</h2>
+
+<div id="screen" *ngIf="openConfirmationOverlay">
+    <div class="confirmationOverlay overlay" *ngIf="openConfirmationOverlay">
+        <h3>Êtes-vous sûr(e) de vouloir réinitialiser le nom des joueurs virtuels?</h3>
+        <div class="horizontalContainer centered">
+            <button class="yesButton confirmationButton" (click)="deleteAll(); openConfirmationOverlay = false">Oui</button>
+            <button class="noButton confirmationButton" (click)="openConfirmationOverlay = false">Non</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isServerValid; else serverInvalid" class="row">
+    <div class="column">
+        <table>
+            <tbody>
+                <tr>
+                    <th class="columnTitle">Joueurs virtuels débutants</th>
+                </tr>
+                <tr *ngFor="let name of virtualPlayersNamesBeginner; index as nameBeginnerId">
+                    <td>
+                        <div *ngIf="nameBeginnerId > 2 && indexNameToModifiedBeginner === nameBeginnerId; else playerName">
+                            <input type="text" [formControl]="modifiedNameBeginner" />
+                            <div *ngIf="modifiedNameBeginner.errors">
+                                Le nom doit être entre {{ minCharacters }} et {{ maxCharacters }} caractères et <br />
+                                ne contenir que des lettres.
+                            </div>
+                            <div *ngIf="validateModifiedNameExists('easy')">Le nom existe déjà dans une des deux listes.</div>
+                            <div>
+                                <button class="cancelButton" (click)="cancel('easy')">Annuler</button>
+                                <button
+                                    class="modifyButton"
+                                    (click)="modifyName('easy', name.playerName, modifiedNameBeginner.value)"
+                                    [disabled]="!modifiedNameBeginner.valid || validateModifiedNameExists('easy')"
+                                >
+                                    Modifier
+                                </button>
+                            </div>
+                        </div>
+                        <ng-template #playerName>
+                            {{ name.playerName }}
+                        </ng-template>
+                        <span *ngIf="nameBeginnerId > 2"
+                            ><button class="modifyName" (click)="modifySelectedName('easy', nameBeginnerId)">
+                                <i class="fa fa-pencil"></i></button
+                            ><button class="deleteName" (click)="deleteName('easy', name.playerName)"><i class="fa fa-trash-o"></i></button
+                        ></span>
+                    </td>
+                </tr>
+            </tbody>
+            <input type="text" [formControl]="newNameBeginner" placeholder="Ajouter un joueur virtuel" />
+            <button
+                class="addName"
+                type="submit"
+                (click)="addName('easy', newNameBeginner.value)"
+                [disabled]="!newNameBeginner.valid || validateNameExists('easy')"
+            >
+                +
+            </button>
+            <div *ngIf="newNameBeginner.errors">
+                Veuillez saisir un nom de joueur entre {{ minCharacters }} et {{ maxCharacters }} caractères et ne contenant que des lettres.
+            </div>
+            <div *ngIf="validateNameExists('easy')">Veuillez saisir un nom de joueur qui n'existe dans aucune des deux listes.</div>
+        </table>
+    </div>
+    <div class="column expert">
+        <table>
+            <tbody>
+                <tr>
+                    <th class="columnTitle">Joueurs virtuels expert</th>
+                </tr>
+                <tr *ngFor="let name of virtualPlayersNamesExpert; index as nameExpertId">
+                    <td>
+                        <div *ngIf="nameExpertId > 2 && indexNameToModifiedExpert === nameExpertId; else playerName">
+                            <input type="text" [formControl]="modifiedNameExpert" />
+                            <div *ngIf="modifiedNameExpert.errors">
+                                Le nom doit être entre {{ minCharacters }} et {{ maxCharacters }} caractères et <br />
+                                ne contenir que des lettres.
+                            </div>
+                            <div *ngIf="validateModifiedNameExists('hard')">Le nom existe déjà dans une des deux listes.</div>
+                            <div>
+                                <button class="cancelButton" (click)="cancel('hard')">Annuler</button>
+                                <button
+                                    class="modifyButton"
+                                    (click)="modifyName('hard', name.playerName, modifiedNameExpert.value)"
+                                    [disabled]="!modifiedNameExpert.valid || validateModifiedNameExists('hard')"
+                                >
+                                    Modifier
+                                </button>
+                            </div>
+                        </div>
+                        <ng-template #playerName>
+                            {{ name.playerName }}
+                        </ng-template>
+                        <span *ngIf="nameExpertId > 2"
+                            ><button class="modifyName" (click)="modifySelectedName('hard', nameExpertId)">
+                                <i class="fa fa-pencil"></i></button
+                            ><button class="deleteName" (click)="deleteName('hard', name.playerName)"><i class="fa fa-trash-o"></i></button
+                        ></span>
+                    </td>
+                </tr>
+            </tbody>
+            <input type="text" [formControl]="newNameExpert" placeholder="Ajouter un joueur virtuel" />
+            <button
+                class="addName"
+                type="submit"
+                (click)="addName('hard', newNameExpert.value)"
+                [disabled]="!newNameExpert.valid || validateNameExists('hard')"
+            >
+                +
+            </button>
+            <div *ngIf="newNameExpert.errors">
+                Veuillez saisir un nom de joueur entre {{ minCharacters }} et {{ maxCharacters }} caractères et ne contenant que des lettres.
+            </div>
+            <div *ngIf="validateNameExists('hard')">Veuillez saisir un nom de joueur qui n'existe dans aucune des deux listes.</div>
+        </table>
+    </div>
+</div>
+<ng-template #serverInvalid>
+    <div id="invalid-server">Il y a eu un problème avec la base de données.</div>
+</ng-template>
+<button *ngIf="isServerValid" class="resetButton" (click)="openConfirmationOverlay = true">Réinitialiser</button>
+<button class="returnButton" routerLink="/admin">Retour</button>
